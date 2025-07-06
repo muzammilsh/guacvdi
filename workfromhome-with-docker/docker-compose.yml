@@ -9,7 +9,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8088:8080"
+      - "8080:8080"
     volumes:
        - '/var/run/docker.sock:/var/run/docker.sock:ro'
        - './traefik_conf/traefik.providers.file.toml:/etc/traefik/traefik.providers.file.toml'
@@ -51,7 +51,7 @@ services:
       - backend
 
   db:
-    image: mysql
+    image: mysql:8.0.34 
     restart: always
     container_name: guacamole-db
     ports:
